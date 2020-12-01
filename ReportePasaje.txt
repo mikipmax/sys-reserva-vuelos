@@ -1,0 +1,9 @@
+select  p.id_pasaje 'ID', CONCAT(c.nombre,' ',c.apellido ) as 'Cliente', comp.nombre 'Compañia', p.asiento 'Asiento', p.clase 'Tipo Clase', p.valor 'Valor', o.ciudad 'Ciudad Origen', d.ciudad 'Ciudad Destino',
+DATE_FORMAT(it.hora, "%H:%i" )  'Hora Vuelo', DATE_FORMAT(it.fecha, "%d/%m/%Y") 'Fecha Vuelo'
+from pasaje p, cliente c, vuelo v, compania comp, itinerario it, origen o, destino d
+where p.id_cliente=c.id_cliente 
+and p.id_vuelo=v.id_vuelo 
+and v.id_compania=comp.id_compania
+and v.id_itinerario=it.id_itinerario
+and it.id_origen=o.id_origen
+and it.id_destino=d.id_destino

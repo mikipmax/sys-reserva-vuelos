@@ -1,5 +1,7 @@
 package com.srv.vistas;
 
+import com.srv.servicios.ReportePasajeReporteImpl;
+import com.srv.servicios.ReportePasajeServicioI;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +49,8 @@ public class MenuPrincipalVista extends javax.swing.JFrame {
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem16 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
 
@@ -154,6 +158,19 @@ public class MenuPrincipalVista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu10);
 
+        jMenu11.setText("Reporte");
+        jMenu11.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+
+        jMenuItem16.setText("Generar Reporte");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem16);
+
+        jMenuBar1.add(jMenu11);
+
         jMenu8.setText("Administrar Usuarios");
         jMenu8.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
 
@@ -238,12 +255,18 @@ public class MenuPrincipalVista extends javax.swing.JFrame {
        pasaje.show();
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        ReportePasajeServicioI reportePasajeServicio= new ReportePasajeReporteImpl();
+      reportePasajeServicio.generarReporte();
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -256,6 +279,7 @@ public class MenuPrincipalVista extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem5;
