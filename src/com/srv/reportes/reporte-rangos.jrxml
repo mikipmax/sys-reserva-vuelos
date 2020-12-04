@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dafb7ed6-97d7-491b-8236-03b84af4191a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef1c538a-f286-40c2-aff1-52836594c55f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="fechaVuelo" class="java.lang.Object">
+	<parameter name="fechaInicial" class="java.lang.Object">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaFinal" class="java.lang.Object">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -16,7 +19,7 @@ and v.id_compania=comp.id_compania
 and v.id_itinerario=it.id_itinerario
 and it.id_origen=o.id_origen
 and it.id_destino=d.id_destino
-and DATE_FORMAT(it.fecha, "%Y-%m-%d")=DATE_FORMAT($P{fechaVuelo}, "%Y-%m-%d")]]>
+and it.fecha between DATE_FORMAT($P{fechaInicial}, "%Y-%m-%d") and DATE_FORMAT($P{fechaFinal}, "%Y-%m-%d") order by it.fecha]]>
 	</queryString>
 	<field name="ID" class="java.math.BigInteger"/>
 	<field name="Cliente" class="java.lang.String"/>
@@ -38,13 +41,13 @@ and DATE_FORMAT(it.fecha, "%Y-%m-%d")=DATE_FORMAT($P{fechaVuelo}, "%Y-%m-%d")]]>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="4120827f-6726-4ce4-ba52-df8140782954"/>
+				<reportElement mode="Opaque" x="-23" y="-20" width="595" height="92" backcolor="#006699" uuid="55c9ea85-244b-48e8-b88b-1448bb9e8eb5"/>
 				<staticText>
-					<reportElement x="20" y="20" width="575" height="43" forecolor="#FFFFFF" uuid="8082183a-15dc-4e1f-a6f8-8c4214c09503"/>
+					<reportElement x="20" y="10" width="544" height="43" forecolor="#FFFFFF" uuid="fb64417d-67a2-40a0-b3ae-0421f16ef105"/>
 					<textElement>
-						<font size="34" isBold="true"/>
+						<font size="30" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Reporte Pasaje por fecha indicada]]></text>
+					<text><![CDATA[Reporte Pasaje por Rango de Fechas]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -55,73 +58,73 @@ and DATE_FORMAT(it.fecha, "%Y-%m-%d")=DATE_FORMAT($P{fechaVuelo}, "%Y-%m-%d")]]>
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="9db46136-9cbc-48af-a464-ee291b0ae1e9"/>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="18f20896-218d-454f-8f89-23a2fda9628c"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6a7217cd-e979-426f-9f81-a698a0b50afd"/>
+				<reportElement mode="Opaque" x="2" y="0" width="40" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c770f958-5a57-428a-ac5a-777ce718013e"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="39" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="706f9c7f-ebf1-445c-b20e-55629c4de0a2"/>
+				<reportElement mode="Opaque" x="39" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="44f8317f-aeff-49b5-9e76-0855bb403485"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="92" y="0" width="73" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4a1ab7ae-e153-423d-bf69-d67089c05f09"/>
+				<reportElement mode="Opaque" x="94" y="0" width="72" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="016e799e-d22d-4511-963b-741b6784d96b"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Compañia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="165" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ac313147-6c5d-45f9-864d-927746e34c49"/>
+				<reportElement mode="Opaque" x="167" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="45deaec3-cb66-4a56-9c82-5ce6ccd2b796"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Asiento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="220" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d731f4c0-cbcf-4bbb-8975-fc5c4669f065"/>
+				<reportElement mode="Opaque" x="223" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3428281e-e2ad-4640-9eb5-256a7cb6c264"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo Clase]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="275" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a92bb790-0618-4a45-98c9-19b2788aec0c"/>
+				<reportElement mode="Opaque" x="273" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e3cd08cc-eea1-487a-8c50-4117a112432e"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Valor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="330" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="100989d1-2f9e-4406-947e-f85d00306ad0"/>
+				<reportElement mode="Opaque" x="326" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6f4d7a8f-fa02-420b-b37e-160ed4362a6d"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Origen]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="385" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5189c46d-9130-45b1-84b1-5eb6d4cd5e77"/>
+				<reportElement mode="Opaque" x="381" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="00649387-80d5-4b78-9693-0f33c2854c3c"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Destino]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="440" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b0a2a26e-1dd8-4dc2-85d5-d86a66590c87"/>
+				<reportElement mode="Opaque" x="436" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a5973531-e84c-4fa9-95e9-4b30b96d8b5f"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hora Vuelo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="495" y="0" width="60" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e7852156-4cae-4aec-863d-dcb457bf5fa7"/>
+				<reportElement mode="Opaque" x="490" y="0" width="65" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a432dc78-aaae-4f0c-80ab-715ecf5f4149"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -132,73 +135,73 @@ and DATE_FORMAT(it.fecha, "%Y-%m-%d")=DATE_FORMAT($P{fechaVuelo}, "%Y-%m-%d")]]>
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="f3db16f3-a222-4ccd-8d3e-cb75f3d6f44e"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="c0b1584e-bd0f-49aa-aa29-45b02603df87"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="10" y="0" width="55" height="20" uuid="c526cdc0-0794-4424-b8b2-a466af57761d"/>
+				<reportElement x="6" y="0" width="55" height="20" uuid="9e6e6bff-a908-496d-928d-3c22a8653135"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="55" y="0" width="55" height="20" uuid="23db0066-3163-47f6-8656-787b979702bb"/>
+				<reportElement x="51" y="0" width="55" height="20" uuid="c2fff863-58b9-40f0-be2b-e50da2e5f44d"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Cliente}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="110" y="0" width="55" height="20" uuid="3bfb710a-1393-49b1-8fc2-0a01d8ee9e13"/>
+				<reportElement x="110" y="0" width="55" height="20" uuid="ca7a944e-af79-41c1-adc6-1e477356643e"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Compañia}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="165" y="0" width="55" height="20" uuid="6656e643-803a-41c8-a2cc-14a1bcc2b11b"/>
+				<reportElement x="169" y="0" width="55" height="20" uuid="c42455c5-5b5b-49d9-88bc-9bca6e5bd7e8"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Asiento}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="220" y="0" width="65" height="20" uuid="f688a1eb-3299-496a-8982-cc9483ac6e4f"/>
+				<reportElement x="220" y="0" width="59" height="20" uuid="0f248c5f-c4cc-42ec-bac2-2d2196812226"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Tipo Clase}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="285" y="0" width="55" height="20" uuid="8a65f0a0-87a3-4c45-98be-0d931552f619"/>
+				<reportElement x="284" y="0" width="55" height="20" uuid="ea6471e9-9528-4a6d-be26-3710dac1cfdf"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="330" y="0" width="55" height="20" uuid="3386a2bb-bc92-4f7a-87d5-a7f0c83c8d20"/>
+				<reportElement x="330" y="0" width="55" height="20" uuid="5e1d1e34-50ef-46c2-8f65-a1038644d976"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Ciudad Origen}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="385" y="0" width="55" height="20" uuid="aa3cb34f-2af1-447f-a6da-1cc2fd426ece"/>
+				<reportElement x="385" y="0" width="55" height="20" uuid="2137469a-01bd-4156-8c00-d979d7a846e5"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Ciudad Destino}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="440" y="0" width="55" height="20" uuid="e40b025d-a309-4863-ac96-1ac5e533a466"/>
+				<reportElement x="441" y="0" width="55" height="20" uuid="443d65b3-0e93-4b1d-ba48-7e53826c37a9"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Hora Vuelo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="482" y="0" width="93" height="20" uuid="954b56f1-3828-4bb1-884f-eda12333c096"/>
+				<reportElement x="483" y="0" width="72" height="20" uuid="81255bff-f6a8-408e-9666-9e547b140f59"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -212,16 +215,16 @@ and DATE_FORMAT(it.fecha, "%Y-%m-%d")=DATE_FORMAT($P{fechaVuelo}, "%Y-%m-%d")]]>
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="aebded0b-a58a-487e-a7c0-7e590afde43a"/>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6f44109f-482f-4b00-aaed-43b6a298b60e"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="47560959-b689-4cc9-be88-a0dbd217e001"/>
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f342738b-d92e-4173-a777-3aeb7bd7c6de"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" uuid="a5345774-6ba6-40fd-9317-62620971001d"/>
+				<reportElement x="0" y="4" width="100" height="13" uuid="36efe8a3-69a9-4930-b23a-9fe4438dc78a"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>

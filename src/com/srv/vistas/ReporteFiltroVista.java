@@ -27,6 +27,8 @@ public class ReporteFiltroVista extends javax.swing.JInternalFrame {
         jcFecha = new rojeru_san.componentes.RSDateChooser();
         jButton1 = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel1.setText("Seleccione Fecha de Itinerario a Filtrar");
 
         jButton1.setText("GENERAR REPORTE");
@@ -61,7 +63,7 @@ public class ReporteFiltroVista extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(56, 56, 56))
         );

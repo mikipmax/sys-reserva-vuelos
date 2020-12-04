@@ -28,7 +28,24 @@ public class ReportePasajeReporteImpl implements ReportePasajeServicioI {
             parametro.put("fechaVuelo", fechaVuelo);
           
             JasperPrint jp = JasperFillManager.fillReport(reportePasaje, parametro, datasource.getConnection());
-            JasperViewer.viewReport(jp, true);
+            JasperViewer.viewReport(jp, false);
+
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    @Override
+    public void generarReportePorRango(Date fechaInicial, Date fechaFinal) {
+              try {
+            JasperReport reportePasaje = JasperCompileManager.compileReport("src/com/srv/reportes/reporte-rangos.jrxml");
+
+            Map parametro = new HashMap();
+            parametro.put("fechaInicial", fechaInicial);
+            parametro.put("fechaFinal", fechaFinal);
+          
+            JasperPrint jp = JasperFillManager.fillReport(reportePasaje, parametro, datasource.getConnection());
+            JasperViewer.viewReport(jp, false);
 
         } catch (Exception e) {
             e.printStackTrace(System.out);
