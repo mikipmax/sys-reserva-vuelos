@@ -283,7 +283,7 @@ public class CompaniaVista extends javax.swing.JInternalFrame {
         try {
 
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 compania = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (compania != null) {
@@ -318,9 +318,9 @@ public class CompaniaVista extends javax.swing.JInternalFrame {
 
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
-        int telefono = txtTelefono.getText().isBlank() ? 0 : Integer.parseInt(txtTelefono.getText());
+        int telefono = txtTelefono.getText().isEmpty() ? 0 : Integer.parseInt(txtTelefono.getText());
         String ruc = txtRuc.getText();
-        if (!nombre.isBlank() && !direccion.isBlank() && !ruc.isBlank()) {
+        if (!nombre.isEmpty() && !direccion.isEmpty() && !ruc.isEmpty()) {
 
             if (mod == 1) {
 

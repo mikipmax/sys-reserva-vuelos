@@ -314,7 +314,7 @@ public class VueloVista extends javax.swing.JInternalFrame {
         try {
             
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 vuelo = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (vuelo != null) {
@@ -350,11 +350,11 @@ public class VueloVista extends javax.swing.JInternalFrame {
         
         int compania = Integer.parseInt(selectCompania.getSelectedItem().toString().split(",")[0]);
         int itinerario = Integer.parseInt(selectItinerario.getSelectedItem().toString().split(",")[0]);
-        int capacidad = txtCapacidad.getText().isBlank() ? 0 : Integer.parseInt(txtCapacidad.getText());
+        int capacidad = txtCapacidad.getText().isEmpty() ? 0 : Integer.parseInt(txtCapacidad.getText());
         String modeloAvion = txtModeloAvion.getText();
         String numeroVuelo = txtNumeroVuelo.getText();
       
-        if (!modeloAvion.isBlank() && !numeroVuelo.isBlank()) {
+        if (!modeloAvion.isEmpty() && !numeroVuelo.isEmpty()) {
             
             if (mod == 1) {
                 

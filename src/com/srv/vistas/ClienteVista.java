@@ -312,7 +312,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         try {
 
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 cliente = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (cliente != null) {
@@ -349,11 +349,11 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-        int edad = txtEdad.getText().isBlank() ? 0 : Integer.parseInt(txtEdad.getText());
-        int telefono = txtTelefono.getText().isBlank() ? 0 : Integer.parseInt(txtTelefono.getText());
+        int edad = txtEdad.getText().isEmpty() ? 0 : Integer.parseInt(txtEdad.getText());
+        int telefono = txtTelefono.getText().isEmpty() ? 0 : Integer.parseInt(txtTelefono.getText());
         String direccion = txtDireccion.getText();
         String ruc = txtRuc.getText();
-        if (!nombre.isBlank() && !apellido.isBlank() && !direccion.isBlank() && !ruc.isBlank()) {
+        if (!nombre.isEmpty() && !apellido.isEmpty() && !direccion.isEmpty() && !ruc.isEmpty()) {
 
             if (mod == 1) {
 

@@ -260,7 +260,7 @@ public class DestinoVista extends javax.swing.JInternalFrame {
         try {
 
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 destino = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (destino != null) {
@@ -295,7 +295,7 @@ public class DestinoVista extends javax.swing.JInternalFrame {
         String nAeropuerto = txtNAeropuerto.getText();
         String ciudad = txtCiudad.getText();
         String codCiudad = txtCodCiudad.getText();
-        if (!nAeropuerto.isBlank() && !ciudad.isBlank() && !codCiudad.isBlank()) {
+        if (!nAeropuerto.isEmpty() && !ciudad.isEmpty() && !codCiudad.isEmpty()) {
 
             if (mod == 1) {
 

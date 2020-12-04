@@ -308,7 +308,7 @@ public class PasajeVista extends javax.swing.JInternalFrame {
         try {
 
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 pasaje = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (pasaje != null) {
@@ -348,7 +348,7 @@ public class PasajeVista extends javax.swing.JInternalFrame {
         String clase = txtClase.getText();
         String valor = txtValor.getText();
 
-        if (!asiento.isBlank() && !clase.isBlank() && !valor.isBlank()) {
+        if (!asiento.isEmpty() && !clase.isEmpty() && !valor.isEmpty()) {
 
             if (mod == 1) {
 

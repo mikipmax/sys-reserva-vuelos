@@ -256,8 +256,11 @@ public class MenuPrincipalVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        ReportePasajeServicioI reportePasajeServicio= new ReportePasajeReporteImpl();
-      reportePasajeServicio.generarReporte();
+        
+        ReporteFiltroVista reporteVista=new ReporteFiltroVista();
+        jDesktopPane1.add(reporteVista);
+       reporteVista.show();
+  
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
 

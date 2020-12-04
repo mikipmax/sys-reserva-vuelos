@@ -344,7 +344,7 @@ public class ItinerarioVista extends javax.swing.JInternalFrame {
         try {
 
             banderaEncontrado = 0;
-            if (!txtbuscar.getText().isBlank()) {
+            if (!txtbuscar.getText().isEmpty()) {
                 banderaBuscar = 1;
                 itinerario = servicio.buscar(Integer.parseInt(txtbuscar.getText()));
                 if (itinerario != null) {
@@ -384,7 +384,7 @@ public class ItinerarioVista extends javax.swing.JInternalFrame {
 
         Date fecha = jcFecha.getDatoFecha();
 
-        if (fecha != null && !hh.isBlank() && !mm.isBlank()) {
+        if (fecha != null && !hh.isEmpty() && !mm.isEmpty()) {
             LocalTime hora = LocalTime.of(Integer.parseInt(hh), Integer.parseInt(mm));
             if (mod == 1) {
 
