@@ -14,7 +14,7 @@ public class Principal {
         try {
             // UIManager.setLookAndFeel(new FlatIntelliJLaf());
             UIManager.setLookAndFeel(new FlatDarkLaf());
-          /*  LoginVista login = new LoginVista();
+          /* LoginVista login = new LoginVista();
             login.setVisible(true);
             login.setLocationRelativeTo(null);*/
             MenuPrincipalVista m=new MenuPrincipalVista();
